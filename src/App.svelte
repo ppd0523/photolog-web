@@ -11,10 +11,7 @@
 </script>
 
   <Router>
-    <Header title="포토 로그">
-      <button>1</button>
-      <button>2</button>
-    </Header>
+    <Header title="포토 로그"/>
 
     <Route path="/" component={Home} />
 
