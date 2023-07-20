@@ -1,5 +1,5 @@
 <script>
-  import {title} from '../lib/titleStore.js';
+  import {title} from './titleStore.js';
 
 </script>
 

@@ -2,8 +2,6 @@
     import {title} from '../lib/titleStore.js';
     import PhotoFrame from "../lib/PhotoFrame.svelte";
 
-    title.set('4x6 P A')
-
     let canvasWidth = 1200;
     let canvasHeight = 1800;
     let screenWidth = 300;
@@ -16,13 +14,22 @@
     ]
     let textPoint = {x: 305, y: 1710};
     let datePoint = {x: 1120, y: 1730};
+    let initCopy = 2;
+    let printFee = 2000;
+    let frameSize = '4x6';
     let frameColors = [
-        {frame: '#e0e0e0', text: '#000000'},
         {frame: '#ffffff', text: '#000000'},
-        {frame: '#000000', text: '#ffffff'},
+        {frame: '#e0e0e0', text: '#000000'},
+        {frame: '#d0e4c3', text: '#000000'},
         {frame: '#ef94a5', text: '#ffffff'},
         {frame: '#cbafd3', text: '#ffffff'},
+
         {frame: '#607ca0', text: '#ffffff'},
+        {frame: '#2bc3bc', text: '#ffffff'},
+        {frame: '#d75864', text: '#ffffff'},
+        {frame: '#a12960', text: '#ffffff'},
+        {frame: '#6e574d', text: '#ffffff'},
+        {frame: '#000000', text: '#e0e0e0'},
     ];
 
 </script>
@@ -30,4 +37,5 @@
 
 <PhotoFrame {canvasWidth} {canvasHeight} {screenWidth}
             {screenHeight} {blockPoints} {frameColors}
-            {textPoint} {datePoint}/>
+            {frameSize} {textPoint} {datePoint}
+            {initCopy} {printFee}/>

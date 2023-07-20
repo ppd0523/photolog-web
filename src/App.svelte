@@ -6,6 +6,7 @@
   import Frame26la from "./pages/Frame26la.svelte";
   import Frame46pa from "./pages/Frame46pa.svelte";
   import Frame64la from "./pages/Frame64la.svelte";
+  import fourcut from "./pages/fourcut.svelte";
   
 
 </script>
@@ -18,6 +19,7 @@
     <Route path="/frame26la" component={Frame26la}/>
     <Route path="/frame46pa" component={Frame46pa}/>
     <Route path="/frame64la" component={Frame64la}/>
+    <Route path="/fourcut" component={fourcut}/>
 
     <Footer></Footer>
   </Router>

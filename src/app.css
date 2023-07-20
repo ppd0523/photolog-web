@@ -10,9 +10,9 @@
 
 body {
   margin: 0;
-  overflow: hidden;
-  touch-action: none;
-  -ms-touch-action: none;
+  height: 100vh;
+  height: -webkit-fill-available;
+  height: fill-available;
 }
 
 

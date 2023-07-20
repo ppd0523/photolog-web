@@ -3,6 +3,8 @@
   import html2canvas from "html2canvas";
   import Cropper from "cropperjs";
   import "cropperjs/dist/cropper.min.css";
+  import {onMount} from "svelte";
+
   Cropper.setDefaults({
       dragMode: 'move',
       viewMode: 1,
@@ -25,11 +27,9 @@
   let isDate = true;
   let cropHidden = true;
 
-  // onMount(()=>{
-  //     cropper = new Cropper(cropElem, {
-  //         aspectRatio: 45/32,
-  //     })
-  // })
+  onMount(()=>{
+
+  })
 
   function slicedText(text){
       return text.slice(0, 12);
@@ -42,15 +42,12 @@
 
     const reader = new FileReader();
     reader.onload = function(e) {
-        selectedElem.firstElementChild.src = e.target.result;
-        cropElem.src = e.target.result;
-
-        cropper = new Cropper(cropElem, {
-            aspectRatio: 45/32,
-        })
+        // selectedElem.firstElementChild.src = e.target.result;
+        let url = e.target.result;
 
     }
     reader.readAsDataURL(file);
+
   }
   function selected() {
       selectedElem = this;
@@ -61,7 +58,7 @@
       cropHidden = true;
   }
   function onSave() {
-    selectedElem.firstElementChild.src = cropper.getCroppedCanvas().toDataURL('image/png');
+    // selectedElem.firstElementChild.src = cropper.getCroppedCanvas().toDataURL('image/png');
 
     onClose();
   }
@@ -82,16 +79,17 @@
   <div class="crop-modal-overlay absolute w-full h-full bg-black opacity-60" on:click={onClose}></div>
   <div class="crop-modal-content w-[80%] h-[50%] top-0 relative border-solid rounded-b-lg bg-white text-center">
     <img id="crop" src="#" alt="" bind:this={cropElem} />
+<!--    <div id="crop" bind:this={cropElem} />-->
     <div class="flex justify-evenly">
       <button class="bg-white p-2 m-2 border border-gray-400 rounded-full shadow"
               on:click={()=>{
-
+                cropper.setBounds({width: '100%', height: 'auto'})
       }}>
         <img src="/static/icon/reset_image_700.svg" alt="">
       </button>
       <button class="bg-white p-2 m-2 border border-gray-400 rounded-full shadow"
               on:click={()=>{
-
+                cropper.setBounds({width: '50%', height: 'auto'})
       }}>
         <img src="/static/icon/rotate_right_700.svg" alt="">
       </button>
