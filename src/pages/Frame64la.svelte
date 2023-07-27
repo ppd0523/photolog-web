@@ -2,21 +2,19 @@
     import {title} from '../lib/titleStore.js';
     import PhotoFrame from "../lib/PhotoFrame.svelte";
 
-    let canvasWidth = 1800;
-    let canvasHeight = 1200;
-    let screenWidth = 450;
-    let screenHeight = 300;
+    let canvasWidth = 1200;
+    let canvasHeight = 1800;
+    let screenWidth = 300;
+    let screenHeight = 450;
     let blockPoints = [
-        {x1: 140, y1: 80, x2: 140+640, y2: 80+480},
-        {x1: 860, y1: 80, x2: 860+640, y2: 80+480},
-        {x1: 300, y1: 640, x2: 300+640, y2: 640+480},
-        {x1: 1020, y1: 640, x2: 1020+640, y2: 640+480},
-    ];
-    let textPoint = {x: 305, y: 1710};
-    let datePoint = {x: 1120, y: 1730};
+        {x1: 150, y1: 20, x2: 150+1030, y2: 20+870},
+        {x1: 150, y1: 910, x2: 150+1030, y2: 910+870},
+    ]
+    let textPoint = {x: 300, y: 1720};
+    let datePoint = {x: 1180, y: 1730};
     let initCopy = 2;
     let printFee = 2000;
-    let frameSize = '6x4';
+    let frameSize = '4x6';
     let frameColors = [
         {frame: '#ffffff', text: '#000000'},
         {frame: '#e0e0e0', text: '#000000'},

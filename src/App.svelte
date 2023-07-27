@@ -12,14 +12,14 @@
 </script>
 
   <Router>
-    <Header title="포토 로그"/>
+    <Header/>
 
     <Route path="/" component={Home} />
 
     <Route path="/frame26la" component={Frame26la}/>
     <Route path="/frame46pa" component={Frame46pa}/>
     <Route path="/frame64la" component={Frame64la}/>
-    <Route path="/fourcut" component={fourcut}/>
+<!--    <Route path="/fourcut" component={fourcut}/>-->
 
-    <Footer></Footer>
+    <Footer/>
   </Router>

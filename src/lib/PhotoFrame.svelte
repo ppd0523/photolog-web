@@ -92,6 +92,7 @@
     }
 
     function drawImage(dataURL, _blockInfo) {
+        console.log(_blockInfo)
         ctx.clearRect(_blockInfo.points.x1, _blockInfo.points.y1, _blockInfo.width, _blockInfo.height);
 
         const img = new Image();
@@ -105,9 +106,9 @@
 
     function drawDate(isDate, datePoint={x:0, y:0}) {
         ctx.fillStyle = frameColor;
-        ctx.fillRect(datePoint.x-200, datePoint.y-40, 220, 55)
+        ctx.fillRect(datePoint.x-200, datePoint.y-30, 220, 55)
         ctx.fillStyle = textColor;
-        ctx.font = "40px Sans MS"
+        ctx.font = "35px cursive"
         ctx.textAlign = "right";
 
         if(isDate)
@@ -120,9 +121,9 @@
         frameText = text;
         ctx.save();
         ctx.fillStyle = frameColor;
-        ctx.fillRect(0, textPoint.y-70, canvasWidth, 110)
+        ctx.fillRect(20, textPoint.y-70, 570, 110)
         ctx.fillStyle = textColor;
-        ctx.font = "60px Sans MS"
+        ctx.font = "60px 'cursive'"
         ctx.textAlign = "center";
         ctx.fillText(text, textPoint.x, textPoint.y);
         ctx.restore();
@@ -199,7 +200,7 @@
             formData.append('size', frameSize)
             formData.append('location', $location)
             formData.append('copy', printCopy)
-            fetch("http://43.202.35.25:8000/printer/photos/", {
+            fetch("https://www.pphotolog.com/printer/photos/", {
                 method: "PUT",
                 body: formData,
             })
@@ -235,15 +236,17 @@
         })
 
         let aspectRatio = blockInfos[0].height / blockInfos[0].width;
+        let viewport_width = Math.min(280, blockInfos[0].width);
+        let viewport_height = viewport_width * aspectRatio;
 
         croppie = new Croppie(cropElem, {
           viewport: {
-              width: blockInfos[0].width*3/5,
-              height: blockInfos[0].height*3/5,
+            width: viewport_width,
+            height: viewport_height,
           },
           container: {
-              width: "100%",
-              height: "100%",
+            width: "100%",
+            height: "100%",
           },
           boundary: {
             width: "100%",
@@ -261,7 +264,7 @@
 
         // Draw icon, box
         const iconImg = new Image();
-        iconImg.src = "/static/icon/add_photo_alternate.svg";
+        iconImg.src = "/assets/icon/add_photo_alternate.svg";
         iconImg.onload = function() {
             blockInfos.forEach(_blockInfo=>{
                 ctx.strokeStyle = 'rgba(0, 0, 0, .25)'
@@ -291,11 +294,11 @@
       on:click={()=>{
         croppie.rotate(90);
       }}>
-        <img src="/static/icon/rotate_left_700.svg" alt="">
+        <img src="/assets/icon/rotate_left_700.svg" alt="">
       </button>
       <button class="bg-white p-2 m-2 border border-gray-400 rounded-full shadow"
       on:click={onSave}>
-        <img src="/static/icon/done_700.svg" alt="done icon">
+        <img src="/assets/icon/done_700.svg" alt="done icon">
       </button>
     </div>
   </div>
@@ -334,11 +337,11 @@
     {#if printable}
     <button class="p-1 m-1 rounded-lg shadow"
           on:click={onPrint}>
-      <img src="/static/icon/print_on.svg" class="h-10" alt="printer on icon">
+      <img src="/assets/icon/print_on.svg" class="h-10" alt="printer on icon">
     </button>
     {:else}
     <button disabled class="p-1 m-1 rounded-lg shadow">
-      <img src="/static/icon/print_off.svg" class="h-10" alt="printer on icon">
+      <img src="/assets/icon/print_off.svg" class="h-10" alt="printer on icon">
     </button>
     {/if}
 
@@ -353,14 +356,14 @@
       <img bind:this={previewElem} class="max-h-[300px] w-fit m-1" id="preview" src="#" alt="preview image">
       <div class="preview-panel flex flex-col justify-evenly items-center gap-4">
         <div class="copy-btn-panel mr-1 text-4xl flex items-center">
-          사진 {printCopy} 장
           <div class="copy-btn ml-1 flex">
-            <button on:click={onUpCopy}><img src="/static/icon/arrow_upward_700.svg" class="h-15" alt="arrow up image"></button>
-            <button on:click={onDownCopy}><img src="/static/icon/arrow_downward_700.svg" class="h-15" alt="arrow down image"></button>
+            <button on:click={onUpCopy}><img src="/assets/icon/arrow_upward_700.svg" class="h-15" alt="arrow up image"></button>
+            {printCopy} 장
+            <button on:click={onDownCopy}><img src="/assets/icon/arrow_downward_700.svg" class="h-15" alt="arrow down image"></button>
           </div>
         </div>
         <div class="fee-panel flex text-4xl items-baseline">
-          <img src="/static/icon/won.svg" class="h-5 mr-1" alt="">
+          <img src="/assets/icon/won.svg" class="h-5 mr-1" alt="">
           {d3.format(',')(printCopy * printFee)}
         </div>
         <div class="payment-panel text-2xl">

@@ -7,13 +7,13 @@
     let screenWidth = 300;
     let screenHeight = 450;
     let blockPoints = [
-        {x1: 80, y1:140, x2:80+480, y2: 140+640},
-        {x1: 80, y1: 860, x2: 80+480, y2: 860+640},
-        {x1: 640, y1: 300, x2: 640+480, y2: 300+640},
-        {x1: 640, y1: 1020, x2: 640+480, y2: 1020+640},
+        {x1: 20, y1: 20, x2: 20+570, y2: 20+760},
+        {x1: 20, y1: 800, x2: 20+570, y2: 800+760},
+        {x1: 610, y1: 140, x2: 610+570, y2: 140+760},
+        {x1: 610, y1: 920, x2: 610+570, y2: 920+760},
     ]
-    let textPoint = {x: 305, y: 1710};
-    let datePoint = {x: 1120, y: 1730};
+    let textPoint = {x: 300, y: 1720};
+    let datePoint = {x: 1180, y: 1730};
     let initCopy = 2;
     let printFee = 2000;
     let frameSize = '4x6';

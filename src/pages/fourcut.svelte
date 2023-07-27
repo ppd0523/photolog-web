@@ -85,23 +85,23 @@
               on:click={()=>{
                 cropper.setBounds({width: '100%', height: 'auto'})
       }}>
-        <img src="/static/icon/reset_image_700.svg" alt="">
+        <img src="/assets/icon/reset_image_700.svg" alt="">
       </button>
       <button class="bg-white p-2 m-2 border border-gray-400 rounded-full shadow"
               on:click={()=>{
                 cropper.setBounds({width: '50%', height: 'auto'})
       }}>
-        <img src="/static/icon/rotate_right_700.svg" alt="">
+        <img src="/assets/icon/rotate_right_700.svg" alt="">
       </button>
       <button class="bg-white p-2 m-2 border border-gray-400 rounded-full shadow"
               on:click={()=>{
 
       }}>
-        <img src="/static/icon/rotate_left_700.svg" alt="">
+        <img src="/assets/icon/rotate_left_700.svg" alt="">
       </button>
       <button class="bg-white p-2 m-2 border border-gray-400 rounded-full shadow"
               on:click={onSave}>
-        <img src="/static/icon/done_700.svg" alt="">
+        <img src="/assets/icon/done_700.svg" alt="">
       </button>
     </div>
   </div>
@@ -113,7 +113,7 @@
 
   {#each [0, 1, 2, 3] as i}
   <div id={`image${i}`} class=" w-[132px] mt-2 aspect-[45/32] flex justify-center items-center" on:click={selected}>
-    <img src="/static/icon/add_photo_alternate.svg" alt="" class="w-full aspect-[45/32]">
+    <img src="/assets/icon/add_photo_alternate.svg" alt="" class="w-full aspect-[45/32]">
   </div>
   {/each}
 
